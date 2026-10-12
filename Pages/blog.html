@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog | Mustapha Shomorin</title>
+    <meta name="description" content="Notes on dependable data pipelines, data quality, and analytics engineering by Mustapha Shomorin." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assests/style.css" />
+    <script defer src="../assests/script.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-inner">
+        <a class="brand" href="../index.html" aria-label="Mustapha Shomorin home">
+          <span class="brand-mark">MS</span>
+          <span class="brand-text">
+            <span class="brand-name">Mustapha Shomorin</span>
+            <span class="brand-role">Data Engineer</span>
+          </span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+          <ul class="nav-links" id="navLinks">
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#skills">Skills</a></li>
+            <li><a href="../index.html#featured">Featured Project</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html" class="active" aria-current="page">Blog</a></li>
+            <li><a href="../index.html#experience">Experience</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle dark and light mode">
+            <span class="theme-icon" aria-hidden="true">☀</span>
+          </button>
+          <a class="btn btn-secondary" href="cv.html">Download CV</a>
+          <a class="btn btn-primary" href="../index.html#contact">Contact Me</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Blog</p>
+          <h1>Field notes for dependable data systems.</h1>
+          <p>Practical ideas on pipeline design, data quality, and building data products people can trust.</p>
+        </div>
+
+        <div class="blog-grid">
+          <article class="blog-card reveal">
+            <p class="blog-topic">Data quality</p>
+            <h2>Make data quality part of the pipeline contract</h2>
+            <p>A pipeline is not reliable just because it completed. The output also needs to meet expectations that downstream users can understand.</p>
+            <p>Start with checks at the boundaries: required fields and types when data arrives, uniqueness and referential integrity after transformation, then freshness and volume before publishing. These checks turn assumptions into visible, testable rules.</p>
+            <p>When a check fails, preserve the evidence and make the failure actionable. Quarantine suspect records or stop the affected output instead of silently dropping data. A clear signal helps the team decide whether to repair, replay, or accept a documented exception.</p>
+          </article>
+
+          <article class="blog-card reveal">
+            <p class="blog-topic">Orchestration</p>
+            <h2>Design pipelines so retries are safe</h2>
+            <p>Failures are normal in distributed systems. A timeout can happen after a write succeeded but before the caller received confirmation, so a retry may repeat work.</p>
+            <p>Make each run repeatable: use stable source identifiers, deterministic processing windows, and writes that replace or merge by a well-defined key. For event streams, deduplicate with event identifiers and retain enough state to recognise replays.</p>
+            <p>Advance checkpoints only after the corresponding output is durable. Then test recovery deliberately by replaying a completed interval and checking that counts and business totals remain consistent. This is more useful than assuming a task will only run once.</p>
+          </article>
+
+          <article class="blog-card reveal">
+            <p class="blog-topic">Analytics engineering</p>
+            <h2>Model data around the decisions it supports</h2>
+            <p>Clean tables are not automatically useful tables. A model should make it straightforward to answer a real question without each analyst rebuilding the same joins and metric definitions.</p>
+            <p>Begin with the grain: state what one row represents, then separate measurable events from the descriptive dimensions used to group them. Define important metrics once, and make keys, null handling, and time zones explicit.</p>
+            <p>Finally, treat the model as an interface. Document freshness and ownership, test the assumptions that matter, and change the contract deliberately when consumers depend on it. That keeps reporting consistent as the platform evolves.</p>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <p class="footer-tagline">I design and ship reliable, scalable data pipelines.</p>
+        </div>
+        <div class="footer-links">
+          <a href="../index.html#about">About</a>
+          <a href="../index.html#skills">Skills</a>
+          <a href="../index.html#featured">Featured Project</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/in/mustaphashomorin/">LinkedIn</a>
+          <a href="https://github.com/mustapha-shomorin">GitHub</a>
+          <a href="mailto:mustaphashomorin@gmail.com">Email</a>
+          <a href="https://wa.me/2349033945003?text=Hi%20Mustapha%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect.">WhatsApp</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© 2026 Mustapha O. Shomorin</p>
+      </div>
+    </footer>
+
+    <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
+  </body>
+</html>
