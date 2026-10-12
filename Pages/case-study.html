@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NorthStar Retail Case Study | Mustapha Shomorin</title>
+    <meta name="description" content="Case study for NorthStar Retail, an end-to-end retail data engineering platform built with Python, Redpanda, dbt, Airflow, DuckDB and Streamlit." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assests/style.css" />
+    <script defer src="../assests/script.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-inner">
+        <a class="brand" href="../index.html" aria-label="Mustapha Shomorin home">
+          <span class="brand-mark">MS</span>
+          <span class="brand-text">
+            <span class="brand-name">Mustapha Shomorin</span>
+            <span class="brand-role">Data Engineer</span>
+          </span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+          <ul class="nav-links" id="navLinks">
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#skills">Skills</a></li>
+            <li><a href="../index.html#featured" class="active">Featured Project</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="../index.html#experience">Experience</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle dark and light mode">
+            <span class="theme-icon" aria-hidden="true">☀</span>
+          </button>
+          <a class="btn btn-secondary" href="cv.html">Download CV</a>
+          <a class="btn btn-primary" href="../index.html#contact">Contact Me</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="case-study-page">
+      <section class="section">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Featured project</p>
+            <h1>NorthStar Retail: End-to-End Retail Data Platform</h1>
+          </div>
+
+          <div class="featured-summary reveal">
+            <p>An end-to-end retail data engineering platform that brings together ingestion, storage, transformation, orchestration, data quality, monitoring and business intelligence to turn operational records into trusted commercial and operational insights.</p>
+          </div>
+
+          <div class="featured-grid reveal">
+            <div class="media-card">
+              <div class="video-placeholder">
+                <video controls playsinline preload="metadata" src="../demo/NorthStar_Demo.mkv" aria-label="NorthStar Retail demo video"></video>
+              </div>
+              <p class="caption">Watch the 4-minute demo</p>
+            </div>
+            <div class="architecture-card">
+              <h3>Platform architecture</h3>
+              <div class="architecture-flow">
+                <div class="flow-step">Sources</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">Ingestion</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">Bronze</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">Silver</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">Gold</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">Serving</div>
+              </div>
+              <p class="small-note">Sources (historical batch data + synthetic order/customer events) → Ingestion (Python, Redpanda) → Bronze → Silver → Gold (DuckDB + dbt) → Serving (Streamlit executive dashboard), with Airflow orchestration and Prometheus/Grafana monitoring across the whole flow.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft">
+        <div class="container reveal">
+          <div class="case-study-box">
+            <article class="case-block">
+              <h3>The problem</h3>
+              <p>Retail teams struggle with fragmented operational data, limited visibility and untrusted reporting. The goal was a reliable data foundation that turns raw transactional records into insights for commercial and operational decisions.</p>
+            </article>
+            <article class="case-block">
+              <h3>Architecture</h3>
+              <p>Bronze preserves ingested data, Silver standardises and validates it, and Gold provides business-ready fact tables, dimensions and analytical marts. Data is ingested in batch from a historical retail dataset, while synthetic order and customer activity events demonstrate the streaming pipeline.</p>
+            </article>
+            <article class="case-block">
+              <h3>Tech stack</h3>
+              <div class="badge-row">
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">Redpanda</span>
+                <span class="tech-badge">DuckDB</span>
+                <span class="tech-badge">dbt</span>
+                <span class="tech-badge">Airflow</span>
+                <span class="tech-badge">Streamlit</span>
+                <span class="tech-badge">Prometheus</span>
+                <span class="tech-badge">Grafana</span>
+                <span class="tech-badge">Docker</span>
+                <span class="tech-badge">Object storage</span>
+              </div>
+            </article>
+            <article class="case-block">
+              <h3>Reliability &amp; data quality</h3>
+              <p>Airflow orchestrates ingestion, transformation, validation and final analytical build, and stops downstream processing when required upstream tasks fail. Includes retry behaviour, failure notifications, replay protection and automated quality checks for critical fields, uniqueness, referential integrity and business rules.</p>
+            </article>
+            <article class="case-block">
+              <h3>Monitoring</h3>
+              <p>A Grafana system-health dashboard (Prometheus metrics) tracks latest pipeline status, failures, records processed, data freshness and the health of the metrics service itself.</p>
+            </article>
+            <article class="case-block">
+              <h3>Executive dashboard</h3>
+              <p>A Streamlit dashboard exposes the Gold layer through five sections: revenue performance, geographic revenue comparison, product category performance, customer value and operations.</p>
+            </article>
+            <article class="case-block">
+              <h3>What I demonstrate</h3>
+              <p>End-to-end data engineering workflow, reproducible processing, dimensional modelling, automated quality checks, orchestration and system monitoring.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container reveal">
+          <div class="screenshot-row">
+            <div class="screenshot-slot"><span>Streamlit dashboard screenshot</span></div>
+            <div class="screenshot-slot"><span>Grafana dashboard screenshot</span></div>
+            <div class="screenshot-slot"><span>Airflow DAG screenshot</span></div>
+          </div>
+          <div class="featured-actions">
+            <a class="btn btn-primary" href="../demo/NorthStar_Demo.mkv" target="_blank" rel="noreferrer">Watch Demo</a>
+            <a class="btn btn-secondary" href="https://github.com/mustapha-shomorin" target="_blank" rel="noreferrer">View on GitHub</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/mustaphashomorin/" target="_blank" rel="noreferrer">Read on LinkedIn</a>
+          </div>
+          <p class="disclaimer">Portfolio project built on historical and synthetic data. Business identifiers are generalised to focus on the technical implementation.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <p class="footer-tagline">I design and ship reliable, scalable data pipelines.</p>
+        </div>
+        <div class="footer-links">
+          <a href="../index.html#about">About</a>
+          <a href="../index.html#skills">Skills</a>
+          <a href="../index.html#featured">Featured Project</a>
+          <a href="../index.html#contact">Contact</a>
+        </div>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/in/mustaphashomorin/">LinkedIn</a>
+          <a href="https://github.com/mustapha-shomorin">GitHub</a>
+          <a href="mailto:mustaphashomorin@gmail.com">Email</a>
+          <a href="https://wa.me/2349033945003?text=Hi%20Mustapha%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect.">WhatsApp</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© 2026 Mustapha O. Shomorin</p>
+      </div>
+    </footer>
+
+    <button class="back-to-top" type="button" aria-label="Back to top">↑</button>
+  </body>
+</html>
